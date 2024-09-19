@@ -27,7 +27,10 @@ func main() {
 	// Load configuration
 	//config := config.Postgres
 	//config := config.InMemory
+	//default to .env file
 	config := config.LoadDatabaseConfig()
+	//for inmemory
+	//config := config.LoadDatabaseConfig(".env.inmemory")
 
 	var userRepo user.UserRepository
 	switch config.Type {
