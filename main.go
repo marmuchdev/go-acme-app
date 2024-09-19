@@ -25,8 +25,9 @@ func rootHandler(writer http.ResponseWriter, request *http.Request) {
 func main() {
 
 	// Load configuration
-	config := config.Postgres
+	//config := config.Postgres
 	//config := config.InMemory
+	config := config.LoadDatabaseConfig()
 
 	var userRepo user.UserRepository
 	switch config.Type {
