@@ -8,11 +8,11 @@ import (
 )
 
 type UserService struct {
-	repository user.UserRepository
+	repository user.ProductRepository
 }
 
 // NewUserService creates a new instance of UserService.
-func NewUserService(repo user.UserRepository) *UserService {
+func NewUserService(repo user.ProductRepository) *UserService {
 	return &UserService{
 		repository: repo,
 	}

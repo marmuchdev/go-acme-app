@@ -16,7 +16,7 @@ import (
 	"testing"
 )
 
-var userRepo user.UserRepository
+var userRepo user.ProductRepository
 
 func TestRootHandler(t *testing.T) {
 	//ARRANGE
@@ -56,10 +56,16 @@ func TestGetUsersHandler(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	//fix this
-	userService := service.NewUserService()
-	userAPI := api.NewUserAPI(userService)
+	config := config.LoadDatabaseConfig(".env.inmemory")
+	dbRepo, err := initializeDatabase(config)
+	if err != nil {
+		t.Fatalf("Error initializing the database: %v", err)
+		return
+	}
+	defer dbRepo.Close()
+	// //fix this
+	// userService := service.NewUserService()
+	// userAPI := api.NewUserAPI(userService)
 	// Create a new response recorder
 	rr := httptest.NewRecorder()
 

@@ -32,7 +32,7 @@ func main() {
 	//for inmemory
 	//config := config.LoadDatabaseConfig(".env.inmemory")
 
-	var userRepo user.UserRepository
+	var userRepo user.ProductRepository
 	switch config.Type {
 	case "postgres":
 		connectionString := fmt.Sprintf("user=%s dbname=%s password=%s host=%s sslmode=%s", config.User, config.DBName, config.Password, config.Host, config.SSLMode)
