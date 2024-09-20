@@ -48,8 +48,8 @@ func (repo *PostgresProductRepository) AddProduct(product model.Product) (id int
 
 	err = repo.DB.QueryRow("INSERT INTO products (name, price, stock_count) VALUES ($1,$2,$3) RETURNING id", product.Name, product.Price, product.Stock_count).Scan(&id)
 	if err != nil {
-		fmt.Println("Error inserting user into the database:", err)
-		return 0, errors.New("Could not insert user")
+		fmt.Println("Error inserting product into the database:", err)
+		return 0, errors.New("Could not insert product")
 	}
 
 	return id, nil

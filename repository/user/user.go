@@ -4,7 +4,7 @@ import (
 	"acme/model"
 )
 
-type ProductRepository interface {
+type UserRepository interface {
 	GetUsers() ([]model.User, error)
 	GetUser(id int) (model.User, error)
 	AddUser(user model.User) (id int, err error)
